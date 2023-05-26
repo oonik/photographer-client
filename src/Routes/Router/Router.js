@@ -5,6 +5,7 @@ import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyReview from "../../Pages/MyReview/MyReview";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/myReview',
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
             }
         ]
     }
