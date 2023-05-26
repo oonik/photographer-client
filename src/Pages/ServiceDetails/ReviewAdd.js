@@ -45,7 +45,7 @@ const ReviewAdd = ({service}) => {
         <div className='m-20 bg-slate-100 p-10 rounded'>
             <form onSubmit={handleAddService}>
                 <div className='mb-4'>
-                <h2 className="text-4xl">Add review this product: {name}</h2>
+                <h2 className="text-2xl lg:text-4xl font-semibold">Add review this product: {name}</h2>
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name='firstName' type="text" placeholder="First name" className="input input-ghost w-full input-bordered" />
