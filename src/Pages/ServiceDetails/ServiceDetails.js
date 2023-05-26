@@ -8,7 +8,7 @@ const ServiceDetails = () => {
 
     return (
         <div>
-            <h1 className='text-5xl font-semibold'>Service section</h1>
+            
             <div className="card bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
                 <img src={picture} alt="Shoes" className="rounded-xl" />

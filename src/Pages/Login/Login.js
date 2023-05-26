@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import login from '../../assets/login/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scen-removebg-previ.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {loginUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -17,6 +21,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            navigate(from, {replace : true})
         })
         .catch(err =>{
             console.error(err);
