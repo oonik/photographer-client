@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import login from '../../assets/login/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scen-removebg-previ.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContext);
+    const {loginUser, signInWithPopup} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -26,6 +27,16 @@ const Login = () => {
         .catch(err =>{
             console.error(err);
         })
+    }
+
+    const handleLoginPopup = ()=>{
+        signInWithPopup()
+        .then((result) =>{
+            const user = result.user;
+            console.log(user);
+            navigate(from, {replace : true})
+        })
+        .catch(err => console.error(err))
     }
     return (
         <div className="hero w-full my-20">
@@ -55,7 +66,9 @@ const Login = () => {
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>
                     </form>
-                    <p className='text-center'>don't have an account ? <Link to='/signup' className='text-blue-600'>sign up</Link></p>
+                    <button onClick={handleLoginPopup} className="btn btn-outline btn-primary mx-8">Contineu with Google <FaGoogle className='ml-3'></FaGoogle> </button>
+                    <p className='text-center mt-2'>don't have an account ? <Link to='/signup' className='text-blue-600'>sign up</Link></p>
+                    
                 </div>
             </div>
         </div>
