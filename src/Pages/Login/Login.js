@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const {loginUser, signInWithPopup} = useContext(AuthContext);
+          const {loginUser, signInWithEmail} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     const handleLoginPopup = ()=>{
-        signInWithPopup()
+        signInWithEmail()
         .then((result) =>{
             const user = result.user;
             console.log(user);
